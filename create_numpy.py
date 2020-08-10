@@ -1,5 +1,7 @@
 from __future__ import print_function
 
+import sys
+
 import os
 import glob
 import numpy as np
@@ -16,9 +18,10 @@ image_cols = int(256)
 image_depth = 16
 
 def create_train_data():
-    
-    train_data_path="s2l_out/label-10/reference/"
-    mask_data_path="s2l_out/label-10/features/"
+
+    op=sys.argv[1]
+    train_data_path=op+"/train/"
+    mask_data_path=op+"/masks/"
     dirs = os.listdir(train_data_path)
     total = int(len(dirs)*16*2)
 
@@ -94,8 +97,8 @@ def create_train_data():
 
     print('Preprocessing of masks done.')
 
-    np.save('s2l_out/label-10/imgs_train.npy', imgs)
-    np.save('s2l_out/label-10/imgs_mask_train.npy', imgs_mask)
+    np.save(op+'/imgs_train.npy', imgs)
+    np.save(op+'/imgs_mask_train.npy', imgs_mask)
 
     imgs = preprocess_squeeze(imgs)
     imgs_mask = preprocess_squeeze(imgs_mask)
