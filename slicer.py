@@ -41,7 +41,7 @@ def split_files(nib_file,data_path):
     return label_list
     
     # Load the dataset
-data_path="/home/sandipsamal/GE-Pipeline/repos/mgz_converter_dataset"
+data_path="/home/sandip/Demo/4_samples"
 
 # create output folder
 output_path = data_path + "/output"
